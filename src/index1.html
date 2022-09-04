@@ -1,17 +1,33 @@
 <html>
 <script src="https://unpkg.com/vue@3"></script>
 <body>
-  <div id="app">{{ message }}</div>
+  <h2>index1.html</h2>
+  <div id="app">
+    <div>
+      メッセージ<br />
+      「{{ message }}」<br />
+    </div>
+    <div>
+      <hr />
+      問題: 自分でmessageを変更してみよう。
+    </div>
+  </div>
+  <div>
+    <hr />
+    <a  href="index2.html">次へ</a>
+  </div>
 </body>
 <script>
   const { createApp } = Vue
 
   createApp({
-    data() {
+    // vue3のプログラミングはここから
+    setup() {
       return {
         message: 'Hello Vue!'
       }
     }
+    // vue3のプログラミングはここまで
   }).mount('#app')
 </script>
 

@@ -1,0 +1,59 @@
+<html>
+<script src="https://unpkg.com/vue@3"></script>
+<body>
+  <h2>index4.html</h2>
+  <div id="app">
+    <div>
+      <input v-model="inputMessage" />
+    </div>
+    <div>
+      入力している値: {{ inputMessage }}
+    </div>
+    <div>
+      <button @click="pushMessage">
+        セット
+      </button>
+    </div>
+    {{messages}}
+    <div>
+      <hr />
+      文字を入力してセットを押してみよう。何度も押せるよ
+      <div>
+        問題1: セットを押すとフィームに入力されている文字を消そう
+      </div>
+      <div>
+        問題2: messagesをv-forを使ってきれいに表示しよう
+      </div>
+      <div>
+        問題3: messagesの最後の文字を消す「消去」ボタンを追加しよう
+      </div>
+    </div>
+  </div>
+  <div>
+    <hr />
+    <a href="index3.html">前へ</a> /
+    <a href="index5.html">次へ</a>
+  </div>
+</body>
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const inputMessage = ref("");
+      const messages = ref([]);
+      const pushMessage = () => {
+        messages.value.push(inputMessage.value);
+      };
+      
+      return {
+        inputMessage,
+        messages,
+        pushMessage,
+      }
+    }
+  }).mount('#app')
+</script>
+
+
+</html>

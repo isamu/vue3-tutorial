@@ -1,0 +1,46 @@
+<html>
+<script src="https://unpkg.com/vue@3"></script>
+<body>
+  <h2>index3.html</h2>
+  <div id="app">
+    <div>
+      counter
+    </div>
+    <div>
+      {{ counter }}
+    </div>
+    <div>
+      <button @click="addCounter">
+        増やす
+      </button>
+    </div>
+    <div>
+      <hr />
+      問題: 「減らす」の機能を追加しよう
+    </div>
+  </div>
+  <div>
+    <hr />
+    <a href="index2.html">前へ</a> /
+    <a href="index4.html">次へ</a>
+  </div>
+</body>
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const counter = ref(0);
+      const addCounter = () => {
+        counter.value ++;
+      };
+      return {
+        counter,
+        addCounter,
+      }
+    }
+  }).mount('#app')
+</script>
+
+
+</html>

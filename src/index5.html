@@ -1,0 +1,60 @@
+<html>
+<script src="https://unpkg.com/vue@3"></script>
+<body>
+  <h2>index4.html</h2>
+  <div id="app">
+    <div>
+      <input v-model="inputNum1" type="number" @input="numChange" />
+    </div>
+    +
+    <div>
+      <input v-model="inputNum2" type="number" @input="numChange" />
+    </div>
+    =
+    {{ result }}
+    <div>
+      <hr />
+      足し算を実装したいよ
+      <div>
+        問題1: resultを計算するようにresultを変更しよう
+      </div>
+      <div>
+        問題2: 引き算や掛け算も作ってみよう
+      </div>
+      <div>
+        問題3: 割り算も作ろう。ただし、0では割れないから、そのときはresultに"エラー"という文字をセットしよう
+      </div>
+    </div>
+  </div>
+  <div>
+    <hr />
+    <a href="index4.html">前へ</a> /
+    <a href="index6.html">次へ</a>
+  </div>
+</body>
+<script>
+  const { createApp, ref, computed } = Vue
+
+  createApp({
+    setup() {
+      const inputNum1 = ref(1);
+      const inputNum2 = ref(1);
+      const result = computed(() => {
+        return 100;
+      });
+      const numChange = () => {
+        console.log(inputNum1.value, inputNum2.value);
+      };
+      
+      return {
+        inputNum1,
+        inputNum2,
+        result,
+        numChange,
+      }
+    }
+  }).mount('#app')
+</script>
+
+
+</html>
